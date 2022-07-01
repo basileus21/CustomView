@@ -183,8 +183,8 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
                 float currRawY = motionEvent.getRawY();
 
                 // Prevent ScrollView (if exists) to intercept event
-                if (getParent() != null) {
-                    getParent().requestDisallowInterceptTouchEvent(true);
+                if (view.getParent() != null) {
+                    view.getParent().requestDisallowInterceptTouchEvent(true);
                 }
 
                 if (dragSpeed != DRAG_NO_LIMIT) {
