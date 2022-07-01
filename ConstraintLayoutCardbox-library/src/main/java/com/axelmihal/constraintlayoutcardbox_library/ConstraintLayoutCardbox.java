@@ -181,6 +181,12 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
             case MotionEvent.ACTION_MOVE:
                 float currRawX = motionEvent.getRawX();
                 float currRawY = motionEvent.getRawY();
+
+                // Prevent ScrollView (if exists) to intercept event
+                if (getParent() != null) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                }
+
                 if (dragSpeed != DRAG_NO_LIMIT) {
                     // Checking dragging speed only if it is limited
                     if (Math.abs(currRawX - prevRawX) > dragSpeed || Math.abs(currRawY - prevRawY) > dragSpeed) {
@@ -292,7 +298,7 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
 
     /**
      * Setting Resize Drag icon
-     * @return
+     * @return Result of dragging - success or not
      */
     public boolean setDragResize(int resizeDir) {
         Drawable drawable = ResourcesCompat.getDrawable(getResources(), android.R.drawable.ic_menu_crop, null);
@@ -354,7 +360,7 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
 
     /**
      * Setting Move Drag icon
-     * @return
+     * @return Result of dragging - success or not
      */
 
     public boolean setDragMove(int moveDir) {
