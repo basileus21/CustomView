@@ -119,7 +119,6 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
     // Override function drawing for Layout
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
         int width = this.getWidth() - 1;
         int height = this.getHeight() - 1;
         switch (frameShape) {
@@ -140,6 +139,7 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
             default:
                 break;
         }
+        super.dispatchDraw(canvas);
     }
 
 
