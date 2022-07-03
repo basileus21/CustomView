@@ -257,12 +257,12 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
             params.height = newHeight;
         }
 
+        this.setLayoutParams(params);
+
         // Launch Position Listener if needed
         if (positionListener != null) {
             positionListener.onPositionChanged(getCurrentPosition(view), false);
         }
-
-        this.setLayoutParams(params);
     }
 
 
@@ -287,12 +287,12 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
             set.connect(((View)(view.getParent())).getId(), ConstraintSet.TOP, loutParent.getId(), ConstraintSet.TOP, initTop + moveVerticalAdj);
         }
 
+        set.applyTo(loutParent);
+
         // Launch Position Listener if needed
         if (positionListener != null) {
             positionListener.onPositionChanged(getCurrentPosition(view), false);
         }
-
-        set.applyTo(loutParent);
     }
 
 
