@@ -36,7 +36,7 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
 
     private final int DRAG_ICON_SIZE = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
 
-    private Paint paint;
+    private Paint paintStroke, paintFill;
     private View dragMove, dragResize;
 
     // Initial values used in move and resize
@@ -67,7 +67,7 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
     private int parentHeight = -1;
 
     // Frame color & shape
-    private final int frameColor = Color.BLUE;
+    private int frameColor = Color.BLUE;
     private int frameShape = FRAME_RECT_ROUND;
 
 
@@ -110,10 +110,10 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
 
 
     private void init(Context context) {
-        paint = new Paint();
-        paint.setColor(frameColor);
-        paint.setStrokeWidth(7);
-        paint.setStyle(Paint.Style.STROKE);
+        paintStroke = new Paint();
+        paintStroke.setColor(frameColor);
+        paintStroke.setStrokeWidth(7);
+        paintStroke.setStyle(Paint.Style.STROKE);
     }
 
     // Override function drawing for Layout
@@ -126,10 +126,16 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
             case FRAME_RECT_ROUND:
                 int roundingLimit = 30;
                 int rounding = (int) (Math.min(width, height) * 0.1f < roundingLimit ? Math.min(width, height) * 0.1f : roundingLimit);
-                canvas.drawRoundRect(0, 0, width, height, rounding, rounding, paint);
+                if (paintFill != null) {
+                    canvas.drawRoundRect(0, 0, width, height, rounding, rounding, paintFill);
+                }
+                canvas.drawRoundRect(0, 0, width, height, rounding, rounding, paintStroke);
                 break;
             case FRAME_RECT:
-                canvas.drawRect(0, 0, width, height, paint);
+                if (paintFill != null) {
+                    canvas.drawRect(0, 0, width, height, paintFill);
+                }
+                canvas.drawRect(0, 0, width, height, paintStroke);
                 break;
             default:
                 break;
@@ -461,8 +467,15 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
     }
 
     public void setFrameColor(int color) {
-        paint.setColor(color);
+        paintStroke.setColor(color);
         invalidate();
+    }
+
+
+    public void setFillColor(int color) {
+        paintFill = new Paint();
+        paintFill.setColor(color);
+        paintFill.setStyle(Paint.Style.FILL);
     }
 
 
