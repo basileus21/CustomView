@@ -172,10 +172,14 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
                 // Get the size and margins
                 initWidth = getWidth();
                 initHeight = getHeight();
-                initLeft = ((View) view.getParent()).getLeft();
-                initRight = ((View) view.getParent()).getRight();
-                initTop = ((View) view.getParent()).getTop();
-                initBottom = ((View) view.getParent()).getBottom();
+//                initLeft = ((View) view.getParent()).getLeft();
+//                initRight = ((View) view.getParent()).getRight();
+//                initTop = ((View) view.getParent()).getTop();
+//                initBottom = ((View) view.getParent()).getBottom();
+                initLeft = view.getLeft();
+                initRight = view.getRight();
+                initTop = view.getTop();
+                initBottom = view.getBottom();
 
                 if (parentWidth < 0 || parentHeight < 0) {
                     // Get the parent's size if not defined yet
@@ -285,7 +289,7 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
         int moveVerticalAdj = (int) (motionEvent.getRawY() - initRawY);
 
         if (initLeft + moveHorizontalAdj >= 0 && initRight + moveHorizontalAdj < parentWidth && ((moveDir & MOVE_HORIZ) == MOVE_HORIZ)) {
-            params.leftMargin  =initLeft + moveHorizontalAdj;
+            params.leftMargin = initLeft + moveHorizontalAdj;
         }
         if (initTop + moveVerticalAdj >=0 && initBottom + moveVerticalAdj < parentHeight && ((moveDir & MOVE_VERT) == MOVE_VERT)) {
             params.topMargin = initTop + moveVerticalAdj;
