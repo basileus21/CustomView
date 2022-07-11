@@ -539,10 +539,14 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
 
 
     private Rect getCurrentPosition(View view) {
-        int left = ((View) view.getParent()).getLeft();
-        int right = ((View) view.getParent()).getRight();
-        int top = ((View) view.getParent()).getTop();
-        int bottom = ((View) view.getParent()).getBottom();
+//        int left = ((View) view.getParent()).getLeft();
+//        int right = ((View) view.getParent()).getRight();
+//        int top = ((View) view.getParent()).getTop();
+//        int bottom = ((View) view.getParent()).getBottom();
+        int left = view.getLeft();
+        int right = view.getRight();
+        int top = view.getTop();
+        int bottom = view.getBottom();
         return new Rect(left, top, right, bottom);
     }
 }
