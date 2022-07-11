@@ -276,36 +276,6 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
     }
 
 
-/*
-    private void move(View view, MotionEvent motionEvent) {
-        if (initRawX < 0 || initRawY < 0) {
-            // Should not happen, but if no initial position is defined no move then
-            return;
-        }
-
-        ViewGroup.MarginLayoutParams params = (MarginLayoutParams)this.getLayoutParams();
-
-        // Move adjustment
-        int moveHorizontalAdj = (int) (motionEvent.getRawX() - initRawX);
-        int moveVerticalAdj = (int) (motionEvent.getRawY() - initRawY);
-
-        if (initLeft + moveHorizontalAdj >= 0 && initRight + moveHorizontalAdj < parentWidth && ((moveDir & MOVE_HORIZ) == MOVE_HORIZ)) {
-            params.leftMargin = initLeft + moveHorizontalAdj;
-        }
-        if (initTop + moveVerticalAdj >=0 && initBottom + moveVerticalAdj < parentHeight && ((moveDir & MOVE_VERT) == MOVE_VERT)) {
-            params.topMargin = initTop + moveVerticalAdj;
-        }
-
-        this.setLayoutParams(params);
-
-        // Launch Position Listener if needed
-        if (positionListener != null) {
-            positionListener.onPositionChanged(getCurrentPosition(view), false);
-        }
-    }
-*/
-
-
 
     private void move(View view, MotionEvent motionEvent) {
         if (initRawX < 0 || initRawY < 0) {
