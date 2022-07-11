@@ -276,6 +276,7 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
     }
 
 
+/*
     private void move(View view, MotionEvent motionEvent) {
         if (initRawX < 0 || initRawY < 0) {
             // Should not happen, but if no initial position is defined no move then
@@ -302,10 +303,10 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
             positionListener.onPositionChanged(getCurrentPosition(view), false);
         }
     }
+*/
 
 
 
-/*
     private void move(View view, MotionEvent motionEvent) {
         if (initRawX < 0 || initRawY < 0) {
             // Should not happen, but if no initial position is defined no move then
@@ -335,7 +336,6 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
         }
     }
 
- */
 
 
     /**
