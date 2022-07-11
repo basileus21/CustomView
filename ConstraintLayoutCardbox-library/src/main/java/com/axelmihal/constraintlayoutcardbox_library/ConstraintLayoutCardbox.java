@@ -172,10 +172,14 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
                 // Get the size and margins
                 initWidth = getWidth();
                 initHeight = getHeight();
-                initLeft = ((View) view.getParent()).getLeft();
-                initRight = ((View) view.getParent()).getRight();
-                initTop = ((View) view.getParent()).getTop();
-                initBottom = ((View) view.getParent()).getBottom();
+                initLeft = getLeft();
+                initRight = getRight();
+                initTop = getTop();
+                initBottom = getBottom();
+//                initLeft = ((View) view.getParent()).getLeft();
+//                initRight = ((View) view.getParent()).getRight();
+//                initTop = ((View) view.getParent()).getTop();
+//                initBottom = ((View) view.getParent()).getBottom();
 
                 if (parentWidth < 0 || parentHeight < 0) {
                     // Get the parent's size if not defined yet
