@@ -172,14 +172,10 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
                 // Get the size and margins
                 initWidth = getWidth();
                 initHeight = getHeight();
-//                initLeft = ((View) view.getParent()).getLeft();
-//                initRight = ((View) view.getParent()).getRight();
-//                initTop = ((View) view.getParent()).getTop();
-//                initBottom = ((View) view.getParent()).getBottom();
-                initLeft = view.getLeft();
-                initRight = view.getRight();
-                initTop = view.getTop();
-                initBottom = view.getBottom();
+                initLeft = ((View) view.getParent()).getLeft();
+                initRight = ((View) view.getParent()).getRight();
+                initTop = ((View) view.getParent()).getTop();
+                initBottom = ((View) view.getParent()).getBottom();
 
                 if (parentWidth < 0 || parentHeight < 0) {
                     // Get the parent's size if not defined yet
@@ -539,14 +535,10 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
 
 
     private Rect getCurrentPosition(View view) {
-//        int left = ((View) view.getParent()).getLeft();
-//        int right = ((View) view.getParent()).getRight();
-//        int top = ((View) view.getParent()).getTop();
-//        int bottom = ((View) view.getParent()).getBottom();
-        int left = view.getLeft();
-        int right = view.getRight();
-        int top = view.getTop();
-        int bottom = view.getBottom();
+        int left = ((View) view.getParent()).getLeft();
+        int right = ((View) view.getParent()).getRight();
+        int top = ((View) view.getParent()).getTop();
+        int bottom = ((View) view.getParent()).getBottom();
         return new Rect(left, top, right, bottom);
     }
 }
