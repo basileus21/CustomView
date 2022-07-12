@@ -440,8 +440,8 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
     public void setSavedSize(Rect rect) {
         int xPos = rect.left;
         int yPos = rect.top;
-        int width = rect.right - rect.left;
-        int height = rect.bottom - rect.top;
+        int width = ((rect.right < 0) || (rect.left) < 0 ? -1 : rect.right - rect.left);
+        int height = ((rect.bottom < 0) || (rect.top) < 0 ? -1 : rect.bottom - rect.top);
 
         if (xPos >= 0 || yPos >= 0) {
             // Recover layout position
