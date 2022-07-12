@@ -176,10 +176,6 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
                 initRight = getRight();
                 initTop = getTop();
                 initBottom = getBottom();
-//                initLeft = ((View) view.getParent()).getLeft();
-//                initRight = ((View) view.getParent()).getRight();
-//                initTop = ((View) view.getParent()).getTop();
-//                initBottom = ((View) view.getParent()).getBottom();
 
                 if (parentWidth < 0 || parentHeight < 0) {
                     // Get the parent's size if not defined yet
@@ -441,7 +437,12 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
     }
 
 
-    public void setSavedSize(int xPos, int yPos, int width, int height) {
+    public void setSavedSize(Rect rect) {
+        int xPos = rect.left;
+        int yPos = rect.top;
+        int width = rect.right - rect.left;
+        int height = rect.bottom - rect.top;
+
         if (xPos >= 0 || yPos >= 0) {
             // Recover layout position
             ConstraintLayout loutParent = (ConstraintLayout) (this.getParent());
