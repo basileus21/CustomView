@@ -366,6 +366,15 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
     }
 
 
+    public int getDragResizeID() {
+        if (dragMove != null) {
+            return dragMove.getId();
+        } else {
+            return -1;
+        }
+    }
+
+
     /**
      * Setting Move Drag icon
      * @return Result of dragging - success or not
@@ -427,6 +436,15 @@ public class ConstraintLayoutCardbox extends ConstraintLayout implements View.On
         set.constrainHeight(dragMove.getId(), sizePx);
         set.applyTo(this);
         return true;
+    }
+
+
+    public int getDragMoveID() {
+        if (dragMove != null) {
+            return dragMove.getId();
+        } else {
+            return -1;
+        }
     }
 
 
